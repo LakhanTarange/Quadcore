@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+.DS_Store
+*.log
+index-backup.html
+index-before-8-projects.html
+index-before-exact-card-fix.html
+index-before-project-layout-fix.html
+index-before-real-projects.html
