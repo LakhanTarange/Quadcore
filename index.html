@@ -138,6 +138,7 @@ margin-top:18px;
 }
 
 </style>
+<link rel="stylesheet" href="assets/modal-flow.css">
 </head>
 <body>
 <div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursorRing"></div>
@@ -595,6 +596,20 @@ placeholder="https://...">
 </div>
 <div class="col-12">
 <label class="form-label">
+Resume / CV
+</label>
+<input
+type="file"
+id="careerResume"
+class="form-control"
+accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+required>
+<div style="font-size:.68rem;color:var(--muted);margin-top:6px">
+PDF, DOC or DOCX ? Maximum 2 MB
+</div>
+</div>
+<div class="col-12">
+<label class="form-label">
 About You
 </label>
 <textarea
@@ -660,7 +675,7 @@ data.append('phone',document.getElementById('contactPhone').value.trim());
 data.append('service',document.getElementById('contactService').value);
 data.append('details',document.getElementById('contactDetails').value.trim());
 try{
-await fetch('https://script.google.com/macros/s/AKfycbzyFImDB-DskDzfn0qwi_rKD4UfL_oX0at3d-FRXKRrXztHnGqcBcIuUin7P1Z_H8EU/exec',{
+await fetch('https://script.google.com/macros/s/AKfycbxbraRgFGGbVENnL8kC-8lsNVl9Gv85FODPX-OF1di2Ub7HuTxNBpDaINcyCrUPOA/exec',{
 method:'POST',
 mode:'no-cors',
 body:data
@@ -708,6 +723,27 @@ const education=document.getElementById('careerEducation').value.trim();
 const skills=document.getElementById('careerSkills').value.trim();
 const profile=document.getElementById('careerProfile').value.trim();
 const message=document.getElementById('careerMessage').value.trim();
+const resumeFile=document.getElementById('careerResume').files[0];
+let resumeData='';
+let resumeName='';
+let resumeType='';
+if(resumeFile){
+if(resumeFile.size > 2*1024*1024){
+alert('Resume must be 2 MB or smaller.');
+btn.innerHTML=original;
+btn.disabled=false;
+return;
+}
+resumeName=resumeFile.name;
+resumeType=resumeFile.type;
+const dataUrl=await new Promise((resolve,reject)=>{
+const reader=new FileReader();
+reader.onload=()=>resolve(reader.result);
+reader.onerror=reject;
+reader.readAsDataURL(resumeFile);
+});
+resumeData=String(dataUrl).split(',')[1] || '';
+}
 const details=
 'CAREER APPLICATION\n\n'+
 'Role: '+role+'\n'+
@@ -726,9 +762,12 @@ data.append('education',education);
 data.append('skills',skills);
 data.append('profile',profile);
 data.append('message',message);
+data.append('resumeName',resumeName);
+data.append('resumeType',resumeType);
+data.append('resumeData',resumeData);
 data.append('details',details);
 try{
-await fetch('https://script.google.com/macros/s/AKfycbzyFImDB-DskDzfn0qwi_rKD4UfL_oX0at3d-FRXKRrXztHnGqcBcIuUin7P1Z_H8EU/exec',{
+await fetch('https://script.google.com/macros/s/AKfycbxbraRgFGGbVENnL8kC-8lsNVl9Gv85FODPX-OF1di2Ub7HuTxNBpDaINcyCrUPOA/exec',{
 method:'POST',
 mode:'no-cors',
 body:data
@@ -751,4 +790,5 @@ btn.disabled=false;
 document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();const b=e.target.querySelector('button');const old=b.textContent;b.textContent='Subscribed!';setTimeout(()=>b.textContent=old,2500);e.target.reset()});document.getElementById('year').textContent=new Date().getFullYear();
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});const menu=document.getElementById('navMenu');if(menu.classList.contains('show')&&window.bootstrap)bootstrap.Collapse.getOrCreateInstance(menu).hide()}}));
 </script>
+<script src="assets/modal-flow.js"></script>
 </body></html>

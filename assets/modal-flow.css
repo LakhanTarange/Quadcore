@@ -1,0 +1,127 @@
+
+/* ===== QUADCORE POPUP FLOW ===== */
+.qc-modal .modal-content{
+    background:#060d18;
+    border:1px solid rgba(0,212,255,.25);
+    border-radius:10px;
+    color:#e8f4ff;
+    box-shadow:0 25px 80px rgba(0,0,0,.75);
+}
+.qc-modal .modal-header{
+    border-bottom:1px solid rgba(0,212,255,.12);
+    padding:20px 24px;
+}
+.qc-modal .modal-footer{
+    border-top:1px solid rgba(0,212,255,.12);
+}
+.qc-modal .modal-title{
+    font-family:var(--font-display);
+    color:var(--white);
+    font-size:1rem;
+    letter-spacing:1px;
+}
+.qc-modal .btn-close{
+    filter:invert(1);
+}
+.qc-modal-label{
+    color:var(--neon);
+    font-size:.65rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+.qc-detail-title{
+    font-family:var(--font-display);
+    font-size:1.45rem;
+    margin-bottom:12px;
+}
+.qc-detail-description{
+    color:var(--muted);
+    line-height:1.8;
+}
+.qc-detail-list{
+    margin:20px 0 0;
+    padding:0;
+    list-style:none;
+}
+.qc-detail-list li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(0,212,255,.08);
+    color:var(--muted);
+    font-size:.85rem;
+}
+.qc-detail-list li:before{
+    content:'?';
+    color:var(--neon);
+    margin-right:10px;
+}
+.qc-modal-action{
+    border:0;
+    background:var(--neon);
+    color:#020408;
+    font-family:var(--font-display);
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:12px 22px;
+    border-radius:4px;
+}
+.qc-modal-action:hover{
+    background:#00aacc;
+}
+.qc-secondary-btn{
+    border:1px solid rgba(0,212,255,.3);
+    background:transparent;
+    color:var(--neon);
+    font-family:var(--font-display);
+    font-size:.65rem;
+    letter-spacing:1px;
+    padding:9px 14px;
+    border-radius:3px;
+}
+.service-view-btn{
+    margin-top:18px;
+    border:1px solid rgba(0,212,255,.3);
+    background:transparent;
+    color:var(--neon);
+    font-family:var(--font-display);
+    font-size:.62rem;
+    letter-spacing:1.3px;
+    padding:9px 14px;
+    border-radius:3px;
+    text-transform:uppercase;
+}
+.service-view-btn:hover{
+    background:var(--neon);
+    color:#020408;
+}
+.service-card{
+    cursor:pointer;
+}
+.modal #careerApplication{
+    margin-top:0 !important;
+}
+.modal #careerApplication,
+.modal #contactForm{
+    border:none;
+    box-shadow:none;
+}
+.qc-enquiry-launch{
+    text-align:center;
+    padding:50px 30px;
+}
+.qc-enquiry-launch i{
+    font-size:2.2rem;
+    color:var(--neon);
+    margin-bottom:20px;
+}
+.qc-enquiry-launch h3{
+    font-family:var(--font-display);
+    font-size:1.2rem;
+    margin-bottom:12px;
+}
+.qc-enquiry-launch p{
+    color:var(--muted);
+    margin-bottom:24px;
+}
