@@ -270,6 +270,9 @@ function App() {
             Have an idea, a project or simply want to talk technology?
             We'd love to hear from you.
           </p>
+          <p className="contact-location">
+            Pune, Maharashtra, India
+          </p>
 
           <a className="contact-button" href="mailto:hello@quadcore.com">
             Start a conversation <span>↗</span>
